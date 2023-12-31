@@ -6,11 +6,14 @@ def lnfact(a, b, s, l):
 		for n in range(1, l+1):
 			sum = sum + complex(a/n, b/n)
 			p = math.log((1+a/n)*(1+a/n)+b/n*b/n)/2
-			q = math.atan(b/(n+a))
+			try:
+				q = math.atan(b/(n+a))
+			except ZeroDivisionError as e:
+				q = math.pi/2*abs(b)/b
 			p = complex(p, q)
 			sum = sum - p
 		return sum
-	except ZeroDivisionError as e:
+	except ValueError as e:
 		return "undefined"
 	
 nem = complex(input("Enter complex number: "))
@@ -20,7 +23,6 @@ zuro, inp = input("Enter two precision parameters: former ideally zero, latter i
 zuro = float(zuro)
 inp = int(inp)
 print(lnfact(re, im, zuro, inp))
-	
 
     	    
     	
