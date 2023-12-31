@@ -13,7 +13,13 @@ def lnfact(a, b, s, l):
 	except ZeroDivisionError as e:
 		return "undefined"
 	
-print(lnfact(2, 0, 0.000001, 10000)-math.log(2))
+nem = complex(input("Enter complex number: "))
+re = nem.real
+im = nem.imag
+zuro, inp = input("Enter two precision parameters: former ideally zero, latter ideally infinity: ").split(" ")
+zuro = float(zuro)
+inp = int(inp)
+print(lnfact(re, im, zuro, inp))
 	
 
     	    
