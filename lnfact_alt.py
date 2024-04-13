@@ -17,7 +17,7 @@ def lnfact(a, b, l):
 nem = complex(input("Enter complex number: "))
 re = nem.real
 im = nem.imag
-inp = int(input("Enter precision parameter: ideally infinity "))
+inp = int(input("Enter precision parameter, ideally infinity: "))
 print(lnfact(re, im, inp))
 
     	    
