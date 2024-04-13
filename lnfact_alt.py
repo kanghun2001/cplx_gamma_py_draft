@@ -1,10 +1,8 @@
 import math
-def lnfact(a, b, s, l):
-	try: 
-		minuseuler = math.gamma(s) - 1/s
-		sum = minuseuler*complex(a, b)
+def lnfact(a, b, l):
+	try:		
+		sum = math.log(l)*complex(a, b)
 		for n in range(1, l+1):
-			sum = sum + complex(a/n, b/n)
 			p = math.log((1+a/n)*(1+a/n)+b/n*b/n)/2
 			try:
 				q = math.atan(b/(n+a))
@@ -19,10 +17,8 @@ def lnfact(a, b, s, l):
 nem = complex(input("Enter complex number: "))
 re = nem.real
 im = nem.imag
-zuro, inp = input("Enter two precision parameters: former ideally zero, latter ideally infinity: ").split(" ")
-zuro = float(zuro)
-inp = int(inp)
-print(lnfact(re, im, zuro, inp))
+inp = int(input("Enter precision parameter: ideally infinity "))
+print(lnfact(re, im, inp))
 
     	    
     	
