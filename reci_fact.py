@@ -1,10 +1,9 @@
 import math
-def lnfact(a, b, s, l):
+def lnfact(a, b, l):
 	try: 
-		minuseuler = math.gamma(s) - 1/s
+		minuseuler = math.log(l)
 		sum = minuseuler*complex(a, b)
 		for n in range(1, l+1):
-			sum = sum + complex(a/n, b/n)
 			p = math.log((1+a/n)*(1+a/n)+b/n*b/n)/2
 			try:
 				q = math.atan(b/(n+a))
@@ -16,8 +15,8 @@ def lnfact(a, b, s, l):
 	except ValueError as e:
 		return "undefined"
 
-def reci_fact(a, b, s, l):
-	tmp = lnfact(a, b, s, l)
+def reci_fact(a, b, l):
+	tmp = lnfact(a, b, l)
 	if tmp == "undefined":
 		return 0
 	else:
@@ -31,10 +30,9 @@ def reci_fact(a, b, s, l):
 nem = complex(input("Enter complex number: "))
 re = nem.real
 im = nem.imag
-zuro, inp = input("Enter two precision parameters: former ideally zero, latter ideally infinity: ").split(" ")
-zuro = float(zuro)
+inp = input("Enter precision parameter: ideally infinity: ")
 inp = int(inp)
-print(reci_fact(re, im, zuro, inp))
+print(lnfact(re, im, inp))
 
 
 
