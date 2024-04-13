@@ -1,8 +1,7 @@
 import math
 def lnfact(a, b, l):
-	try: 
-		minuseuler = math.log(l)
-		sum = minuseuler*complex(a, b)
+	try:		
+		sum = math.log(l)*complex(a, b)
 		for n in range(1, l+1):
 			p = math.log((1+a/n)*(1+a/n)+b/n*b/n)/2
 			try:
@@ -15,6 +14,7 @@ def lnfact(a, b, l):
 	except ValueError as e:
 		return "undefined"
 
+    	    
 def reci_fact(a, b, l):
 	tmp = lnfact(a, b, l)
 	if tmp == "undefined":
@@ -30,8 +30,7 @@ def reci_fact(a, b, l):
 nem = complex(input("Enter complex number: "))
 re = nem.real
 im = nem.imag
-inp = input("Enter precision parameter: ideally infinity: ")
-inp = int(inp)
+inp = int(input("Enter precision parameter: ideally infinity "))
 print(lnfact(re, im, inp))
 
 
